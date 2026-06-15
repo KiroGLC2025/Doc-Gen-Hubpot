@@ -1,19 +1,14 @@
-# Render blueprint — commit this, then in Render: New → Blueprint → pick this repo.
-# Region 'singapore' is Render's closest to Australia. Plan 'starter' is always-on
-# (do NOT use 'free' — it spins down when idle and LibreOffice cold starts are slow).
 services:
   - type: web
     name: glc-deal-generator
     runtime: docker
-    region: singapore
     plan: starter
+    region: singapore
     dockerfilePath: ./Dockerfile
     healthCheckPath: /health
-    autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production
-      # Set these two in the Render dashboard (Environment tab) — never commit them.
       - key: GLC_SERVICE_KEY
         sync: false
       - key: HUBSPOT_PRIVATE_APP_TOKEN
