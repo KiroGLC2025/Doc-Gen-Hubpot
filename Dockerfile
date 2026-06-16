@@ -19,7 +19,7 @@ RUN fc-cache -f
 
 # Dependencies (includes tsx, which runs the TypeScript service directly — no build step).
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install
 
 # Service code + the tokenised template (read at runtime from ./templates).
 COPY tsconfig.json ./
